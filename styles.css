@@ -2403,3 +2403,43 @@ MOBILE RESPONSIVENESS ↓
         height: 44px;
     }
 }
+
+/* Steps responsive overrides: stacked by default, fluid split from 767px */
+#steps .row {
+    display: block;
+}
+#steps .steps__img--wraper,
+#steps .steps__discription {
+    width: 100%;
+    max-width: 100%;
+}
+
+@media (min-width: 767px) {
+    #steps .row {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr; /* give steps more room vs image */
+        align-items: center; /* vertically center image to steps */
+        column-gap: 24px;
+    }
+    #steps .steps__img--wraper,
+    #steps .steps__discription {
+        box-sizing: border-box;
+        width: auto;
+        max-width: 100%;
+    }
+    #steps .steps__img--wraper {
+        align-self: center;   /* ensure the image column centers if row uses different alignment elsewhere */
+        justify-self: center; /* horizontally center the image within its grid cell if narrower */
+    }
+    #steps .steps__img {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+}
+
+@media (min-width: 1024px) {
+    #steps .row {
+        grid-template-columns: 1fr 1fr;
+    }
+}
